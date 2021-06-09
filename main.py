@@ -11,11 +11,12 @@ inp = ["+------+",
 
 
 def board(inp):
+    # COACHES' NOTE: inp? Don't use abbreviations for variable names.
     #if(not inp or not inp[0]): return inp
     edge = len(inp[0])
     for row in inp[1:]:
         if(len(row) != edge): raise ValueError("Invalid grid!")
-
+    
     for row in inp:
         for i in range(2,len(row)):
             if(row[i] == " " or row[i] == "*"): continue
@@ -23,6 +24,7 @@ def board(inp):
                 #raise ValueError("Invalid character found!")
 
     output = []
+    # COACHES' NOTE: this could have been a separate function.
     for i, row in enumerate(inp):
         string = ""
         for j, cell in enumerate(row):
@@ -47,6 +49,7 @@ def board(inp):
     return output
 
 def checkAt(row, col, grid):
+    # COACHES' NOTE: it's okay to separate checks into multiple line or checks for readability
     if(row < len(grid) and col < len(grid[0]) and row >= 0 and col >= 0 and grid[row][col] == "*"):
         return 1
     return 0
@@ -63,3 +66,5 @@ board(inp)
 #create_output_board(inp)
 
 #if __name__ == '__main__':
+
+# COACHES' NOTE: general feedback, take things one step at a time. Identify what the smallest action is within the problem and start writing a function. I feel you wrote a lot more code than I see here, but erased it because it didn't fit into the rest. 
